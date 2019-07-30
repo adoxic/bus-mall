@@ -1,6 +1,6 @@
 import emotions from '../src/data/emotions.js';
 import movingData from '../src/data/collect-push-data.js';
-import randomNumber, { selectThreeObjects, noRepeat, replaceRepeats } from '../src/emotion-generation.js';
+import { selectThreeObjects, noRepeat, replaceRepeats } from '../src/emotion-generation.js';
 
 const test = QUnit.test;
 

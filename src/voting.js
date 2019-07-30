@@ -1,10 +1,10 @@
 import { selectThreeObjects, replaceRepeats } from './emotion-generation.js';
 import emotions from './data/emotions.js';
 
-const left = document.getElementById('left');
-const mid = document.getElementById('mid');
-const right = document.getElementById('right');
-
+//const left = document.getElementById('left');
+//const mid = document.getElementById('mid');
+//const right = document.getElementById('right');
+//Work in progress is commented out 
 const threeObjArray = selectThreeObjects(emotions);
 replaceRepeats(threeObjArray);
 
