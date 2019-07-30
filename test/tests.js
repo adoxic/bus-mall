@@ -1,3 +1,1 @@
-import './render-products.test.js';
-import './register.test.js';
-import './store.test.js';
+import './collect-push-data.test.js';
