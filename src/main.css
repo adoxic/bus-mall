@@ -1,0 +1,25 @@
+html {
+    background-color: azure;
+    font-family: 'Roboto Slab', serif;
+}
+
+header {
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+    color: navy;
+    background-color: lightblue;
+    padding: 5px 15px;
+}
+
+.options {
+    display: flex;
+    justify-content: space-around;
+    font-size: 6pc;
+}
+
+.options > p:hover {
+   border-radius: 100%;
+   -webkit-box-shadow: 52px 66px 42px 11px rgba(0,0,0,0.8); 
+box-shadow: 52px 66px 42px 11px rgba(0,0,0,0.8);
+}
