@@ -25,7 +25,7 @@ sortArray(emotions);
 export function selectThreeObjects(array) {
     const threeArray = [];
     for(let i = 0; i < 3; i++) {
-        let element = array[randomNumber(12)];
+        let element = array[randomNumber(11)];
         threeArray.push(element);  
     }
     return threeArray;
@@ -45,6 +45,10 @@ export function replaceRepeats(threeArray) {
         threeArray.splice(1, 1, oneElement);
     }
     while(threeArray[1] === threeArray[2]) {
+        let twoElement = threeArray[randomNumber(12)];
+        threeArray.splice(2, 1, twoElement);
+    }
+    while(threeArray[0] === threeArray[2]) {
         let twoElement = threeArray[randomNumber(12)];
         threeArray.splice(2, 1, twoElement);
     }

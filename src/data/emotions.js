@@ -8,7 +8,7 @@ const happySmile = {
 const happyCry = {
     id: 'happy-cry',
     name: 'A happy crying face!',
-    unicode: '&#X1f923',
+    unicode: '',
     type: 'positive',
 };
 
