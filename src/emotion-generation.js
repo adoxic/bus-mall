@@ -32,7 +32,7 @@ export function selectThreeObjects(array) {
 }
 
 export function noRepeat(threeArray) {
-    if(threeArray[1] === ) {
+    if(threeArray[1] === threeArray[2] || threeArray[0] === threeArray[1] || threeArray[2] === threeArray[0]) {
         return false;
     } else {
         return true;
@@ -40,15 +40,12 @@ export function noRepeat(threeArray) {
 }
 
 export function replaceRepeats(threeArray) {
-    console.log('before', threeArray);
     while(threeArray[0] === threeArray[1]) {
         let oneElement = threeArray[randomNumber(12)];
         threeArray.splice(1, 1, oneElement);
-        console.log('splice 1', threeArray);
     }
     while(threeArray[1] === threeArray[2]) {
         let twoElement = threeArray[randomNumber(12)];
         threeArray.splice(2, 1, twoElement);
-        console.log('splice 2', threeArray);
     }
 }

@@ -46,12 +46,41 @@ test('add three objects to array', assert => {
 test('do the three objects repeat', assert => {
 
     
-    const returnArray = selectThreeObjects(emotions);
-    console.log(returnArray);
-    replaceRepeats(returnArray);
+    const returnArray = [
+        {
+            id: 'disappointed',
+            name: 'A disappointed expression.',
+            unicode: '&#X1f61e',
+            type: 'negative',
+        },
+        {
+            id: 'fearful-face',
+            name: 'A fearful expression.',
+            unicode: '&#X1f628',
+            type: 'negative',
+        },
+        {
+            id: 'spider',
+            name: 'A spider.',
+            unicode: '&#X1f577',
+            type: 'negative',
+        },
+    ];
     const actual = noRepeat(returnArray);
     const expected = true;
 
     assert.equal(actual, expected);
     
 });
+
+test('does replace repeat function work?', assert => {
+
+    
+    const returnArray = selectThreeObjects(emotions);
+    replaceRepeats(returnArray);
+    const actual = noRepeat(returnArray);
+    const expected = true;
+
+    assert.equal(actual, expected);
+    
+}); 
