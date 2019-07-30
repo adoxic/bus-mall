@@ -20,6 +20,6 @@ header {
 
 .options > p:hover {
    border-radius: 100%;
-   -webkit-box-shadow: 52px 66px 42px 11px rgba(0,0,0,0.8); 
-box-shadow: 52px 66px 42px 11px rgba(0,0,0,0.8);
+   -webkit-box-shadow: 2px 30px 22px 1px rgba(0,0,0,0.8); 
+   box-shadow: 62px 90px 12px 1px rgba(0,0,0,0.4);
 }
