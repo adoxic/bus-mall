@@ -33,9 +33,18 @@ function displayArray(exampleArray) {
 
 displayArray(threeObjArray);
 movingData.makeClickedList();
+movingData.makeShownList();
 
-leftButton.addEventListener('click', () => {
-    movingData.addToClickedList(leftButton.value);
-    movingData.addToShownLast(leftButton.value, midButton.value, rightButton.value);
-});
+getDataOnClick(leftButton);
+getDataOnClick(midButton);
+getDataOnClick(rightButton);
 
+function getDataOnClick(button) {
+    button.addEventListener('click', () => {
+        movingData.addToClickedList(button.value);
+        movingData.addToShownLast(leftButton.value, midButton.value, rightButton.value);
+        const shownLastArray = movingData.get('shown-last');
+        movingData.addToShownList(shownLastArray);
+        window.location.reload();
+    }); 
+}
