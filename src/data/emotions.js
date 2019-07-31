@@ -1,100 +1,130 @@
-const happySmile = {
-    id: 'happy-smile',
-    name: 'A happy smiling face!',
-    unicode: '&#X1f603',
-    type: 'positive',
+const bag = {
+    id: 'bag',
+    name: 'R2D2 rolling bag',
+    image: './assets/bag.jpg',
 };
 
-const happyCry = {
-    id: 'happy-cry',
-    name: 'A happy crying face!',
-    unicode: '',
-    type: 'positive',
+const banana = {
+    id: 'banana',
+    name: 'Banana slicer',
+    image: './assets/banana.jpg',
 };
 
-const hugFace = {
-    id: 'hug',
-    name: 'A digital hug!',
-    unicode: '&#X1f917',
-    type: 'positive',
+const bathroom = {
+    id: 'bathroom',
+    name: 'Toilet paper/ipad holder',
+    image: './assets/bathroom.jpg',
 };
 
-const panda = {
-    id: 'panda',
-    name: 'A happy panda!',
-    unicode: '&#X1f43c',
-    type: 'positive',
+const boots = {
+    id: 'boots',
+    name: 'Toeless rain boots',
+    image: './assets/boots.jpg',
 };
 
-const floppyDisc = {
-    id: 'floppy-disc',
-    name: 'A floppy disc.',
-    unicode: '&#X1f4be',
-    type: 'neutral',
+const breakfast = {
+    id: 'breakfast',
+    name: 'All in one breakfast maker',
+    image: './assets/breakfast.jpg',
 };
 
-const soccerBall = {
-    id: 'soccer-ball',
-    name: 'A soccer ball.',
-    unicode: '&#X26bd',
-    type: 'neutral',
+const bubblegum = {
+    id: 'bubblegum',
+    name: 'Meatball bubblegum',
+    image: './assets/bubblegum.jpg',
 };
 
-const upsideDownFace = {
-    id: 'upside-down-face',
-    name: 'An upside down face.',
-    unicode: '&#X1f643',
-    type: 'neutral',
+const chair = {
+    id: 'chair',
+    name: 'Uncomfortable chair',
+    image: './assets/chair.jpg',
 };
 
-const sleepingFace = {
-    id: 'sleeping-face',
-    name: 'A sleeping face.',
-    unicode: '&#X1f634',
-    type: 'neutral',
+const cthulhu = {
+    id: 'cthulhu',
+    name: 'Cthulhu figureen',
+    image: './assets/cthulhu.jpg',
 };
 
-const hurtHead = {
-    id: 'hurt-head',
-    name: 'A bandaged head.',
-    unicode: '&#X1f915',
-    type: 'negative',
+const dogDuck = {
+    id: 'dog-duck',
+    name: 'Duck muzzle for a small dog',
+    image: './assets/dog-duck.jpg',
 };
 
-const disappointed = {
-    id: 'disappointed',
-    name: 'A disappointed expression.',
-    unicode: '&#X1f61e',
-    type: 'negative',
+const dragon = {
+    id: 'dragon',
+    name: 'Canned dragon meat',
+    image: './assets/dragon.jpg',
 };
 
-const fearfulFace = {
-    id: 'fearful-face',
-    name: 'A fearful expression.',
-    unicode: '&#X1f628',
-    type: 'negative',
+const petSweep = {
+    id: 'pen',
+    name: 'Sweep booties for dogs',
+    image: './assets/pet-sweep.jpg',
 };
 
-const spider = {
-    id: 'spider',
-    name: 'A spider.',
-    unicode: '&#X1f577',
-    type: 'negative',
+const scissors = {
+    id: 'scissors',
+    name: 'Pizza scissors',
+    image: './assets/scissors.jpg',
+};
+
+const shark = {
+    id: 'shark',
+    name: 'Shark sleeping bag',
+    image: './assets/shark.jpg',
+};
+
+const sweep = {
+    id: 'sweep',
+    name: 'Baby sweeper',
+    image: './assets/sweep.png',
+};
+
+const tauntaun = {
+    id: 'tauntaum',
+    name: 'Tauntaun sleeping bag',
+    image: './assets/tauntaun.jpg',
+};
+
+const unicorn = {
+    id: 'unicorn',
+    name: 'Canned Unicorn Meat',
+    image: './assets/unicorn.jpg',
+};
+
+const waterCan = {
+    id: 'water-can',
+    name: 'Inconvenient water can',
+    image: './assets/water-can.jpg',
+}; 
+
+const wineGlass = {
+    id: 'water-glass',
+    name: 'Inconvenient glass',
+    image: './assets/wine-glass.jpg',
 };
 
 const emotions = [
-    happySmile,
-    happyCry,
-    hugFace,
-    panda,
-    floppyDisc,
-    soccerBall,
-    upsideDownFace,
-    sleepingFace,
-    hurtHead,
-    disappointed,
-    fearfulFace,
-    spider,
+    bag,
+    banana,
+    bathroom,
+    boots,
+    breakfast,
+    bubblegum,
+    chair,
+    cthulhu,
+    dogDuck,
+    dragon,
+    petSweep,
+    scissors,
+    shark,
+    sweep,
+    tauntaun,
+    unicorn,
+    waterCan,
+    wineGlass,
 ];
 
 export default emotions;

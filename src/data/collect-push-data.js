@@ -19,6 +19,26 @@ const movingData = {
         }
         return returnedProducts;
     },
+    makeClickedList() {
+        let clickedList = movingData.get('clicked-list');
+        if(!clickedList) {
+            clickedList = [];
+        }
+        return clickedList;
+    },
+    addToClickedList(clickValue) {
+        const clickedList = movingData.makeClickedList();
+        const clickedObject = {
+            code: clickValue,
+            quantity: 1
+        };
+        clickedList.push(clickedObject);
+
+        movingData.save('clicked-list', clickedList);
+    },
+    addToShownLast(button1, button2, button3) {
+        movingData.save('all-shown-items', [button1, button2, button3]);
+    },
 };
 
 export default movingData;

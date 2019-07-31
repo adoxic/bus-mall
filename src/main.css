@@ -12,14 +12,25 @@ header {
     padding: 5px 15px;
 }
 
-.options {
-    display: flex;
-    justify-content: space-around;
-    font-size: 6pc;
+img {
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
-.options > p:hover {
-   border-radius: 100%;
-   -webkit-box-shadow: 2px 30px 22px 1px rgba(0,0,0,0.8); 
-   box-shadow: 62px 90px 12px 1px rgba(0,0,0,0.4);
+button {
+    width: 170px; 
+    height: 170px;
+    padding: 0;
 }
+
+.options {
+    width: 600px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+

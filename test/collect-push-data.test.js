@@ -38,9 +38,10 @@ test('add three objects to array', assert => {
 
     
     const returnArray = selectThreeObjects(emotions);
+    noRepeat(returnArray);
 
     assert.equal(returnArray.length, 3);
-    
+    assert.equal(returnArray.includes('undefined'), false);
 }); 
 
 test('do the three objects repeat', assert => {
