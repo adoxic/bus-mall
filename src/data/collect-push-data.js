@@ -46,9 +46,8 @@ const movingData = {
         let clickedList = movingData.get('all-shown-list');
        
         if(!clickedList) {
-            clickedList = [];
+            clickedList = {};
         }
-        console.log(clickedList);
         return clickedList;
     },
     addToShownList(array) {
@@ -56,17 +55,14 @@ const movingData = {
 
         for(let i = 0; i < array.length; i++) {
             let shownObject = array[i];
-            
-            if(shownList.map(item => item.id).includes(shownObject.id)) {
-                shownObject.quantity++;
-                console.log(shownObject.quantity);
-                shownList.push(shownObject);
+
+            if(shownList[shownObject.id] === 'undefined') {
+
+                shownList[shownObject.id] = 1;
+                shownList[shownObject.id]++;
             } else {
-                shownObject = {
-                    id: shownObject.id,
-                    quantity: 1
-                };
-                shownList.push(shownObject);
+                shownList[shownObject.id]++;
+
             }
         }
         movingData.save('all-shown-list', shownList);
