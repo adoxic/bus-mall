@@ -1,8 +1,10 @@
 import { selectThreeObjects, replaceRepeats } from './emotion-generation.js';
-import emotions from './data/emotions.js';
 import movingData from './data/collect-push-data.js';
 
+movingData.removeArrayDataByKey('clicked-this-round');
+movingData.removeObjectDataByKey('shown-this-round');
 movingData.pullFromProducts();
+let productList = movingData.get('emotions-list');
 
 const left = document.getElementById('left');
 const mid = document.getElementById('mid');
@@ -14,9 +16,10 @@ const rightButton = document.getElementById('right-button');
 const buttons = document.getElementById('options');
 const displayResult = document.getElementById('display-results');
 const displayShown = document.getElementById('display-shown');
+const showAllResults = document.getElementById('show');
 
-let threeObjArray = selectThreeObjects(emotions);
-replaceRepeats(threeObjArray, emotions);
+let threeObjArray = selectThreeObjects(productList);
+replaceRepeats(threeObjArray, productList);
 
 
 function displayArray(exampleArray) {
@@ -63,6 +66,7 @@ function getDataOnClick(button) {
         
         if(numOfRounds === 25) {
             buttons.classList.add('hide');
+            showAllResults.classList.remove('hide');
 
             const clickedList = movingData.get('clicked-this-round');
 
@@ -91,8 +95,8 @@ function getDataOnClick(button) {
             movingData.removeObjectDataByKey('shown-this-round');
         }    
         
-        threeObjArray = selectThreeObjects(emotions);
-        replaceRepeats(threeObjArray, emotions);
+        threeObjArray = selectThreeObjects(productList);
+        replaceRepeats(threeObjArray, productList);
         displayArray(threeObjArray);
     }); 
 }
