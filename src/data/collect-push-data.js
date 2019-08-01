@@ -19,15 +19,15 @@ const movingData = {
         }
         return returnedProducts;
     },
-    makeClickedList() {
-        let clickedList = movingData.get('clicked-list');
+    makeClickedList(key) {
+        let clickedList = movingData.get(key);
         if(!clickedList) {
             clickedList = [];
         }
         return clickedList;
     },
-    addToClickedList(clickValue) {
-        const clickedList = movingData.makeClickedList();
+    addToClickedList(clickValue, key) {
+        const clickedList = movingData.makeClickedList(key);
         let clickedObject = movingData.getObject(clickedList, clickValue);
         
         if(clickedObject) {
@@ -40,18 +40,18 @@ const movingData = {
 
             clickedList.push(clickedObject);
         }
-        movingData.save('clicked-list', clickedList);
+        movingData.save(key, clickedList);
     },
-    makeShownList() {
-        let clickedList = movingData.get('all-shown-list');
+    makeShownList(key) {
+        let clickedList = movingData.get(key);
        
         if(!clickedList) {
             clickedList = {};
         }
         return clickedList;
     },
-    addToShownList(array) {
-        const shownList = movingData.makeShownList();
+    addToShownList(array, key) {
+        const shownList = movingData.makeShownList(key);
 
         for(let i = 0; i < array.length; i++) {
             let shownObject = array[i];
@@ -65,7 +65,7 @@ const movingData = {
 
             }
         }
-        movingData.save('all-shown-list', shownList);
+        movingData.save(key, shownList);
         
     },
     addToShownLast(button1, button2, button3) {
@@ -79,6 +79,16 @@ const movingData = {
             }
         }
         return null;
+    },
+    removeArrayDataByKey(key) {
+        let pulledData = movingData.get(key);
+        pulledData = [];
+        movingData.save(key, pulledData);
+    },
+    removeObjectDataByKey(key) {
+        let pulledData = movingData.get(key);
+        pulledData = {};
+        movingData.save(key, pulledData);
     },
 };
 
