@@ -1,7 +1,8 @@
-import { selectThreeObjects, replaceRepeats } from './emotion-generation.js';
+import { selectThreeObjects, replaceRepeats, replaceRepeatsSmall, selectNoRepeatThreeObjects } from './emotion-generation.js';
 import movingData from './data/collect-push-data.js';
 
 movingData.removeArrayDataByKey('clicked-this-round');
+movingData.removeArrayDataByKey('shown-last');
 movingData.removeObjectDataByKey('shown-this-round');
 movingData.pullFromProducts();
 let productList = movingData.get('emotions-list');
@@ -22,10 +23,10 @@ let threeObjArray = selectThreeObjects(productList);
 replaceRepeats(threeObjArray, productList);
 
 
-function displayArray(exampleArray) {
-    const firstObject = exampleArray[0];
-    const secondObject = exampleArray[1];
-    const thirdObject = exampleArray[2];
+function displayArray(threeObjArray) {
+    const firstObject = threeObjArray[0];
+    const secondObject = threeObjArray[1];
+    const thirdObject = threeObjArray[2];
 
     left.src = firstObject.image;
     mid.src = secondObject.image;
@@ -44,7 +45,6 @@ getDataOnClick(leftButton);
 getDataOnClick(midButton);
 getDataOnClick(rightButton);
 
-
 function getDataOnClick(button) {
     let shownList = [];
     shownList.push(leftButton.value);
@@ -52,7 +52,8 @@ function getDataOnClick(button) {
     shownList.push(rightButton.value);
 
     let numOfRounds = 0;
-
+    let newList = [];
+    
     button.addEventListener('click', () => {
         
         movingData.addToClickedList(button.value, 'clicked-list');
@@ -63,6 +64,14 @@ function getDataOnClick(button) {
         movingData.addToShownList(shownLastArray, 'shown-this-round');
         
         numOfRounds++;
+
+        const shownIds = shownLastArray.map(i => i.id);
+        
+        newList = productList.filter(item => {
+            if(!shownIds.includes(item.id)) {
+                return newList;
+            }
+        });
         
         if(numOfRounds === 25) {
             buttons.classList.add('hide');
@@ -95,8 +104,8 @@ function getDataOnClick(button) {
             movingData.removeObjectDataByKey('shown-this-round');
         }    
         
-        threeObjArray = selectThreeObjects(productList);
-        replaceRepeats(threeObjArray, productList);
+        threeObjArray = selectNoRepeatThreeObjects(newList);
+        replaceRepeatsSmall(threeObjArray, newList);
         displayArray(threeObjArray);
     }); 
 }
