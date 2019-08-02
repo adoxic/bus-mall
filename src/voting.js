@@ -86,8 +86,6 @@ function getDataOnClick(button) {
                 li.textContent = clickedObject.id + ' : ' + clickedObject.quantity;
                 displayResult.appendChild(li);
             }
-            movingData.removeArrayDataByKey('clicked-this-round');
-            
 
             const shownList = movingData.get('shown-this-round');
             const arrayifiedKeys = Object.keys(shownList);
@@ -101,7 +99,7 @@ function getDataOnClick(button) {
                 li.textContent = key + ' : ' + value;
                 displayShown.appendChild(li);
             }
-            movingData.removeObjectDataByKey('shown-this-round');
+            
         }    
         
         threeObjArray = selectNoRepeatThreeObjects(newList);

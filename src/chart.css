@@ -1,0 +1,16 @@
+canvas {
+    width: 50%;
+    height: 500px;
+    position: relative;
+}
+
+html, body {
+    margin: auto;
+    width:  80%;
+    height: 100%;
+    margin: 0;
+  }
+
+html {
+    background-color: lightgray;
+}
