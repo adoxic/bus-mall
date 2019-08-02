@@ -1,0 +1,40 @@
+html {
+    background-color: azure;
+    font-family: 'Roboto Slab', serif;
+}
+
+header {
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+    color: navy;
+    background-color: lightblue;
+    padding: 5px 15px;
+}
+
+img {
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+button {
+    width: 170px; 
+    height: 170px;
+    padding: 0;
+}
+
+
+.options {
+    width: 600px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.hide {
+    display: none;
+}
+
