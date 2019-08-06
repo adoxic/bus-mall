@@ -30,34 +30,5 @@ export function noRepeat(threeArray) {
     }
 }
 
-export function replaceRepeats(threeArray, array) {
-    while(threeArray[0] === threeArray[1]) {
-        let oneElement = array[randomNumber(17)];
-        threeArray.splice(1, 1, oneElement);
-    }
-    while(threeArray[1] === threeArray[2]) {
-        let twoElement = array[randomNumber(17)];
-        threeArray.splice(2, 1, twoElement);
-    }
-    while(threeArray[0] === threeArray[2]) {
-        let threeElement = array[randomNumber(17)];
-        threeArray.splice(2, 1, threeElement);
-    }
-    return threeArray;
-}
 
-export function replaceRepeatsSmall(threeArray, array) {
-    while(threeArray[0] === threeArray[1]) {
-        let oneElement = array[randomNumber(14)];
-        threeArray.splice(1, 1, oneElement);
-    }
-    while(threeArray[1] === threeArray[2]) {
-        let twoElement = array[randomNumber(14)];
-        threeArray.splice(2, 1, twoElement);
-    }
-    while(threeArray[0] === threeArray[2]) {
-        let threeElement = array[randomNumber(14)];
-        threeArray.splice(2, 1, threeElement);
-    }
-    return threeArray;
-}
+

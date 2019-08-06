@@ -1,4 +1,7 @@
-import emotions from './emotions.js';
+import products from './products.js';
+
+const PRODUCT_LIST = 'product-list';
+const SHOWN_LAST = 'shown-last';
 
 const movingData = {
     storage: window.localStorage,
@@ -12,10 +15,10 @@ const movingData = {
         return item;
     },
     pullFromProducts() {
-        let returnedProducts = movingData.get('emotions-list');
+        let returnedProducts = movingData.get(PRODUCT_LIST);
         if(!returnedProducts) {
-            movingData.save('emotions-list', emotions);
-            returnedProducts = emotions;
+            movingData.save(PRODUCT_LIST, products);
+            returnedProducts = products;
         }
         return returnedProducts;
     },
@@ -69,7 +72,7 @@ const movingData = {
         
     },
     addToShownLast(button1, button2, button3) {
-        movingData.save('shown-last', [{ id: button1, quantity: 1 }, { id: button2, quantity: 1 }, { id: button3, quantity: 1 }]);
+        movingData.save(SHOWN_LAST, [{ id: button1, quantity: 1 }, { id: button2, quantity: 1 }, { id: button3, quantity: 1 }]);
     },
     getObject(array, id) {
         for(let i = 0; i < array.length; i++) {
@@ -90,6 +93,53 @@ const movingData = {
         pulledData = {};
         movingData.save(key, pulledData);
     },
+    randomWholeNum(num) {
+        return Math.floor(Math.random() * num);
+    },
+    randomProducts(numOfProducts) {
+
+        let pulledCards = [];
+        movingData.pullFromProducts();
+
+        const productArray = movingData.get(PRODUCT_LIST);
+        const productCopy = productArray.slice();
+
+        for(let i = 0; i < numOfProducts; i++) {
+            let num = 19;
+            num--;
+            const randomNumber = movingData.randomWholeNum(num);
+           
+            const productObject = productCopy[randomNumber];
+            productCopy.splice(randomNumber, 1);
+            
+          
+            pulledCards.push(productObject);
+            
+    
+        }
+        return pulledCards;
+    },
+    randomProductsByArray(array) {
+
+        let pulledProducts = [];
+
+        const productCopy = array.slice();
+
+        for(let i = 0; i < 3; i++) {
+            let num = 16;
+            num--;
+            const randomNumber = movingData.randomWholeNum(num);
+           
+            const productObject = productCopy[randomNumber];
+            productCopy.splice(randomNumber, 1);
+            
+          
+            pulledProducts.push(productObject);
+            
+    
+        }
+        return pulledProducts;
+    }
 };
 
 export default movingData;
