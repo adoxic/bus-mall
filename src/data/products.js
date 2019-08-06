@@ -106,7 +106,7 @@ const wineGlass = {
     image: './assets/wine-glass.jpg',
 };
 
-const emotions = [
+const products = [
     bag,
     banana,
     bathroom,
@@ -127,7 +127,7 @@ const emotions = [
     wineGlass,
 ];
 
-export default emotions;
+export default products;
 
 
 

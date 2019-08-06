@@ -1,11 +1,10 @@
-import { selectThreeObjects, replaceRepeats, replaceRepeatsSmall, selectNoRepeatThreeObjects } from './emotion-generation.js';
 import movingData from './data/collect-push-data.js';
 
 movingData.removeArrayDataByKey('clicked-this-round');
 movingData.removeArrayDataByKey('shown-last');
 movingData.removeObjectDataByKey('shown-this-round');
 movingData.pullFromProducts();
-let productList = movingData.get('emotions-list');
+let productList = movingData.get('product-list');
 
 const left = document.getElementById('left');
 const mid = document.getElementById('mid');
@@ -19,9 +18,7 @@ const displayResult = document.getElementById('display-results');
 const displayShown = document.getElementById('display-shown');
 const showAllResults = document.getElementById('show');
 
-let threeObjArray = selectThreeObjects(productList);
-replaceRepeats(threeObjArray, productList);
-
+let threeObjArray = movingData.randomProducts(3);
 
 function displayArray(threeObjArray) {
     const firstObject = threeObjArray[0];
@@ -45,12 +42,8 @@ getDataOnClick(leftButton);
 getDataOnClick(midButton);
 getDataOnClick(rightButton);
 
-function getDataOnClick(button) {
-    let shownList = [];
-    shownList.push(leftButton.value);
-    shownList.push(midButton.value);
-    shownList.push(rightButton.value);
 
+function getDataOnClick(button) {
     let numOfRounds = 0;
     let newList = [];
     
@@ -59,6 +52,7 @@ function getDataOnClick(button) {
         movingData.addToClickedList(button.value, 'clicked-list');
         movingData.addToClickedList(button.value, 'clicked-this-round');
         movingData.addToShownLast(leftButton.value, midButton.value, rightButton.value);
+        
         const shownLastArray = movingData.get('shown-last');
         movingData.addToShownList(shownLastArray, 'all-time-shown');
         movingData.addToShownList(shownLastArray, 'shown-this-round');
@@ -66,13 +60,15 @@ function getDataOnClick(button) {
         numOfRounds++;
 
         const shownIds = shownLastArray.map(i => i.id);
+        console.log(shownIds);
         
         newList = productList.filter(item => {
             if(!shownIds.includes(item.id)) {
                 return newList;
             }
         });
-        
+        console.log(newList);
+
         if(numOfRounds === 25) {
             buttons.classList.add('hide');
             showAllResults.classList.remove('hide');
@@ -102,8 +98,8 @@ function getDataOnClick(button) {
             
         }    
         
-        threeObjArray = selectNoRepeatThreeObjects(newList);
-        replaceRepeatsSmall(threeObjArray, newList);
+        threeObjArray = movingData.randomProductsByArray(newList);
+
         displayArray(threeObjArray);
     }); 
 }

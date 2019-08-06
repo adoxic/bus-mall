@@ -1,6 +1,6 @@
-import emotions from '../src/data/emotions.js';
+import products from '../src/data/products.js';
 import movingData from '../src/data/collect-push-data.js';
-import { selectThreeObjects, noRepeat, replaceRepeats } from '../src/emotion-generation.js';
+import { noRepeat } from '../src/emotion-generation.js';
 
 const test = QUnit.test;
 
@@ -28,20 +28,19 @@ test('sent and received test', assert => {
 test('sending an array and bootstrap', assert => {
     
     const returnedArray = movingData.pullFromProducts();
-    const expected = emotions;
+    const expected = products;
     
-    assert.equal(returnedArray, expected);
+    assert.deepEqual(returnedArray, expected);
 
 });  
 
 test('add three objects to array', assert => {
 
     
-    const returnArray = selectThreeObjects(emotions);
-    noRepeat(returnArray);
+    const returnArray = movingData.randomProducts(3);
 
     assert.equal(returnArray.length, 3);
-    assert.equal(returnArray.includes('undefined'), false);
+    
 }); 
 
 test('do the three objects repeat', assert => {
@@ -77,8 +76,8 @@ test('do the three objects repeat', assert => {
 test('does replace repeat function work?', assert => {
 
     
-    const returnArray = selectThreeObjects(emotions);
-    replaceRepeats(returnArray);
+    const returnArray = movingData.randomProducts(3);
+    
     const actual = noRepeat(returnArray);
     const expected = true;
 
